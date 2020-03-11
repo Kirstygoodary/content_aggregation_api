@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 if (result.error) {
-  throw result.error;
+  console.log(result.error);
 }
 
 console.log(result.parsed);
