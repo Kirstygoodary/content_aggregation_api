@@ -1,5 +1,6 @@
 const express = require("express");
 const apiRouter = require("./routes/api-router");
+const dotenv = require("dotenv");
 const result = dotenv.config();
 const app = express();
 const Twitter = require("twitter");
