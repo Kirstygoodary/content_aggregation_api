@@ -1,7 +1,6 @@
-const apiRouter = require("express").Router();
+const express = require("express");
+const apiRouter = require("./node_modules/express").Router();
 
-apiRouter.get("/", () => {
-  res.sendStatus(200);
-});
+apiRouter.get("/", () => res.sendStatus(200));
 
-module.exports = apiRouter;
+module.exports = { apiRouter, express };
