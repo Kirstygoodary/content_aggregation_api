@@ -1,6 +1,10 @@
+const socialMedia = {};
+
 const fetchTweets = (error, tweets, response) => {
   if (!error) {
-    console.log(tweets);
+    socialMedia.tweets = tweets;
+  } else if (error) {
+    return response.status(error.status).send({ message: error.message });
   }
 };
 
