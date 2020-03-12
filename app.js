@@ -1,7 +1,7 @@
 const dotenv = require("dotenv");
-// const express = require("express");
-const apiRouter = require("./routes/api-router");
 const result = dotenv.config();
+const express = require("express");
+const apiRouter = require("./routes/api-router");
 const app = express();
 const { client, params } = require("./credentials/client");
 
@@ -12,7 +12,6 @@ app.use(express.json());
 app.all("/*", (req, res, next) => {
   return res.status(404).send({ msg: "Route not found" });
 });
-
 if (result.error) {
   console.log(result.error);
 }
@@ -26,4 +25,4 @@ app.listen(process.env.PORT || 8000, () => {
   console.log(`listening on port 8000`);
 });
 
-module.exports = app;
+module.exports = { app, express };
