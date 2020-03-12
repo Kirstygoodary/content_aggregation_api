@@ -4,7 +4,7 @@ const apiRouter = require("./routes/api-router");
 const result = dotenv.config();
 const app = express();
 const Twitter = require("twitter");
-const { fetchTweets } = require("./Controllers/twitterController");
+const { fetchTweets } = require("./controllers/twitterController");
 
 app.use(express.json());
 
