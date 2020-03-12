@@ -1,6 +1,6 @@
+const dotenv = require("dotenv");
 const express = require("express");
 const apiRouter = require("./routes/api-router");
-const dotenv = require("dotenv");
 const result = dotenv.config();
 const app = express();
 const Twitter = require("twitter");
@@ -26,8 +26,6 @@ client.get("statuses/user_timeline", params, function(error, tweets, response) {
     console.log(tweets);
   }
 });
-
-module.exports = client;
 
 app.use("/api", apiRouter);
 
