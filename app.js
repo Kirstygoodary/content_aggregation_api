@@ -4,8 +4,13 @@ const apiRouter = require("./routes/api-router");
 const result = dotenv.config();
 const app = express();
 const Twitter = require("twitter");
+const { fetchTweets } = require("./Controllers/twitterController");
 
 app.use(express.json());
+
+app.all("/*", (req, res, next) => {
+  return res.status(404).send({ msg: "Route not found" });
+});
 
 if (result.error) {
   console.log(result.error);
@@ -21,11 +26,7 @@ const client = new Twitter({
 
 const params = { screen_name: "pillarwallet" };
 
-client.get("statuses/user_timeline", params, function(error, tweets, response) {
-  if (!error) {
-    console.log(tweets);
-  }
-});
+client.get("statuses/user_timeline", params, fetchTweets);
 
 app.use("/api", apiRouter);
 
