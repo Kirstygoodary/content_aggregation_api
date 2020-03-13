@@ -1,4 +1,4 @@
-const apiRouter = require("./node_modules/express").Router();
+const apiRouter = require("express").Router();
 
 apiRouter.get("/", () => res.sendStatus(200));
 
