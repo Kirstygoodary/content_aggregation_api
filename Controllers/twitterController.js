@@ -2,8 +2,6 @@ const socialMedia = {};
 
 const fetchTweets = (error, tweets, response) => {
   if (!error) {
-    //console.log(tweets[0].user.profile_image_url);
-
     const tweetArray = [];
     tweets.forEach(tweet => {
       const tweetObject = {};
