@@ -12,6 +12,13 @@ app.use(express.json());
 app.all("/*", (req, res, next) => {
   return res.status(404).send({ msg: "Route not found" });
 });
+
+app.use(function(err, req, res, next) {
+  if (err.status) {
+    return res.status(err.status).send({ msg: err.msg });
+  }
+});
+
 if (result.error) {
   console.log(result.error);
 }
